@@ -2,7 +2,7 @@
 #AutoIt3Wrapper_Icon=guibuild.ico
 #AutoIt3Wrapper_Outfile=FormBuilder.exe
 #AutoIt3Wrapper_Res_Description=PaletteCAD Gui
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.10
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.11
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=Y
 #AutoIt3Wrapper_Res_Fileversion_First_Increment=Y
 #AutoIt3Wrapper_Res_ProductVersion=1.0.0.0
@@ -513,6 +513,10 @@ Func au3_gui()
 EndFunc
 
 Func _NameToXML($name,$prop,$text,$enable,$Visible,$posx,$posy,$width,$hight,$classid,$Tip)
+	$posx = Round($posx*0.706,0)	; Anpassung der Größe
+	$posy = Round($posy*0.706,0)	; Anpassung der Größe
+	$width = Round($width*0.706,0)	; Anpassung der Größe
+	$hight = Round($hight*0.706,0)	; Anpassung der Größe
 	If $name = "Radio" Then
 		$ret = '<Control Type="RADIOBUTTON" VarType="STRING" PropertyName="'&$prop&'" Default="" Enable="'&$enable&'" Tooltip="'&$Tip&'" Visible="'&$Visible&'">'&@LF
 		$ret &= '<Item Value="'&$classid&'" Pos="'&$posx&','&$posy&'" Width="'&$width&'" Height="'&$hight&'">'&$text&'</Item>'&@LF
